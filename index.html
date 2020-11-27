@@ -1,0 +1,318 @@
+<html>
+<head>
+<title>TXT generator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../fonts/stylesheet.css" rel="stylesheet" type="text/css">
+<style>
+html {
+  word-wrap: break-word
+}
+::selection {background: #000; color: #FFF;}
+img {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+blockquote {
+  margin-left: 0;
+  padding: 0.2em 0 0.2em 2em;
+  border-left: 3px solid rgb(211, 218, 234);
+}
+li, code {
+  margin: 0.4em 0;
+}
+p {
+  margin: 0.9em 0;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: auto; <!-- for align-center -->
+}
+table td, table th {
+  border: 1px solid #eee;
+  padding: 5px;
+}
+table tr:nth-child(odd){
+  background-color: #fafafa;
+}
+table tr:hover {
+  background-color: #eee;
+}
+table th {
+  text-align: left;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #eee;
+}
+pre > code {
+  display: block;
+  padding: 0.5em 2em;
+  overflow-x:auto;
+}
+code {
+  background: rgba(211, 218, 234, 0.25);
+}
+textarea {
+resize: none;
+}
+.input {
+background-color:#ee9; width:99%; font-family: monospace; font-size: 16px;  
+}
+.markdown {
+width: 95%; height: 90vh; overflow-y: auto; font-size: 16px; line-height: 1.3; padding-right:10px; padding-left:10px; 
+}
+.pad {
+  border:1px solid #aaa;
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: normal;
+}
+.pad td {
+padding: 0 5px;
+}
+</style>
+<div style="display: grid; grid-template-columns: 64% 36%; width: 100%;">
+<textarea placeholder='Enter text here. Meta charset="UTF-8"' rows="30" id="input" class="input"></textarea>
+<div id="markdown" class="markdown">
+</div>
+</div>
+
+<table class="pad">
+<tr>
+<td>
+<input type="text" placeholder="file name" id="filename"/>
+<a href="#" id="export"><button>download</button></a> 
+</td>
+<td>
+<b><span id="charcount">0</span> / <span id="wordcount">0</span></b>
+</td>
+<td>
+<button onclick="openMD()">open MD</button>
+</td>
+  <td>
+<a href="https://victorlee.github.io/urlpages/editor/#eyJjc3MiOiJodG1sIHtcbmZvbnQtc2l6ZTogMTRweDtcbmxpbmUtaGVpZ2h0OiAyO1xucGFkZGluZzogMTAwcHggNjBweDtcbmZvbnQtc2l6ZTogMTZweDtcbndvcmQtd3JhcDogYnJlYWstd29yZFxufVxuaW1nIHtcbm1heC13aWR0aDogOTAlO1xubWFyZ2luOiBhdXRvO1xuZGlzcGxheTogYmxvY2s7XG59XG5ibG9ja3F1b3RlIHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIHBhZGRpbmc6IDAuMmVtIDAgMC4yZW0gMmVtO1xuICBib3JkZXItbGVmdDogM3B4IHNvbGlkIHJnYigyMTEsIDIxOCwgMjM0KTtcbn1cbmxpLCBjb2RlIHtcbiAgbWFyZ2luOiAwLjRlbSAwO1xufVxucCB7XG4gIG1hcmdpbjogMC45ZW0gMDtcbn1cbnRhYmxlIHtcbiAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcbiAgdGFibGUtbGF5b3V0OiBmaXhlZDtcbiAgd2lkdGg6IDEwMCU7XG59XG50YWJsZSB0ZCwgdGFibGUgdGgge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZWVlO1xuICBwYWRkaW5nOiA1cHg7XG59XG50YWJsZSB0cjpudGgtY2hpbGQoZXZlbil7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmYWZhZmE7XG59XG50YWJsZSB0cjpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG59XG50YWJsZSB0aCB7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIHBhZGRpbmctdG9wOiA4cHg7XG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG59XG5wcmUgPiBjb2RlIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBhZGRpbmc6IDAuNWVtIDJlbTtcbiAgd2hpdGUtc3BhY2U6cHJlLXdyYXA7IFxuICB3b3JkLXdyYXA6YnJlYWstd29yZDtcbn1cbmNvZGUge1xuICBiYWNrZ3JvdW5kOiByZ2JhKDIxMSwgMjE4LCAyMzQsIDAuMjUpO1xufVxudGV4dGFyZWEge1xucmVzaXplOiBub25lO1xufSIsImpzIjoiIiwiaHRtbCI6IjxsaW5rIGhyZWY9XCJodHRwczovL3ZpY3RvcmxlZS5naXRodWIuaW8vY29kZS9mb250LmNzc1wiIHJlbD1cInN0eWxlc2hlZXRcIiB0eXBlPVwidGV4dC9jc3NcIj5cblxuIn0=" target="_blank"><button>print</button></a>
+<a href="https://victorlee.github.io/urlpages/editor/#eyJjc3MiOiJodG1sIHtcbiAgbWF4LXdpZHRoOiAzOHJlbTtcbiAgcGFkZGluZzogNHJlbSAycmVtO1xuICBtYXJnaW46IGF1dG87XG4gIGxpbmUtaGVpZ2h0OiAxLjg7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZFxufVxuaW1nIHtcbm1heC13aWR0aDogMTAwJTtcbm1hcmdpbjogYXV0bztcbmRpc3BsYXk6IGJsb2NrO1xufVxuYmxvY2txdW90ZSB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBwYWRkaW5nOiAwLjJlbSAwIDAuMmVtIDJlbTtcbiAgYm9yZGVyLWxlZnQ6IDNweCBzb2xpZCByZ2IoMjExLCAyMTgsIDIzNCk7XG59XG5saSwgY29kZSB7XG4gIG1hcmdpbjogMC40ZW0gMDtcbn1cbnAge1xuICBtYXJnaW46IDAuOWVtIDA7XG59XG50YWJsZSB7XG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XG4gIHRhYmxlLWxheW91dDogZml4ZWQ7XG4gIHdpZHRoOiAxMDAlO1xufVxudGFibGUgdGQsIHRhYmxlIHRoIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcbiAgcGFkZGluZzogNXB4O1xufVxudGFibGUgdHI6bnRoLWNoaWxkKGV2ZW4pe1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmFmYWZhO1xufVxudGFibGUgdHI6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xufVxudGFibGUgdGgge1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xuICBwYWRkaW5nLXRvcDogOHB4O1xuICBwYWRkaW5nLWJvdHRvbTogOHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xufVxucHJlID4gY29kZSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwYWRkaW5nOiAwLjVlbSAyZW07XG4gIG92ZXJmbG93LXg6YXV0bztcbn1cbmNvZGUge1xuICBiYWNrZ3JvdW5kOiByZ2JhKDIxMSwgMjE4LCAyMzQsIDAuMjUpO1xufVxudGV4dGFyZWEge1xucmVzaXplOiBub25lO1xufSIsImpzIjoiIiwiaHRtbCI6IjxtZXRhIG5hbWU9XCJ2aWV3cG9ydFwiIGNvbnRlbnQ9XCJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wXCI+XG48dGl0bGU+ICoqKlRJVExFKioqIDwvdGl0bGU+XG48bGluayBocmVmPVwiaHR0cHM6Ly92aWN0b3JsZWUuZ2l0aHViLmlvL2NvZGUvZm9udC5jc3NcIiByZWw9XCJzdHlsZXNoZWV0XCIgdHlwZT1cInRleHQvY3NzXCI+XG5cbiJ9" target="_blank"><button>web</button></a>
+  </td>
+  <td>
+    <input type="button" value="scrollup âŽ" id="offon" onclick="offon();">
+  </td>
+</tr>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+var container = document.getElementById('input');
+var anchor = document.getElementById('export');
+anchor.onclick = function() {
+    anchor.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(container.value);
+    anchor.download = document.getElementById('filename').value;
+};
+    
+window.onload = function() {
+  var input = document.getElementById("input").focus();
+}
+   
+window.onbeforeunload = function(event) {
+  event.returnValue = "Leave page?";
+};
+
+document.getElementById('input').onkeyup = function () {
+  document.getElementById('charcount').innerHTML = (this.value.length);
+};
+  
+$(document).ready(function() {
+  $("#input").on('keyup', function() {
+    var words = this.value.match(/\S+/g).length;
+      $('#wordcount').text(words);
+  });
+}); 
+  
+function openMD() {
+  var wi = window.open();
+  var html = $('#markdown').html();
+  $(wi.document.body).html(html);
+}
+  
+var scrollEnable = true;
+var add;
+function start() {
+  add = setInterval(function() {
+    var element = document.getElementById("markdown");
+    element.scrollTop = element.scrollHeight;
+  });
+}
+$('#offon').click(function() {
+  console.log(scrollEnable)
+  if (scrollEnable) {
+    clearInterval(add)
+  } else {
+    start();
+  }
+  scrollEnable = !scrollEnable;
+});
+start();
+function offon(){
+  currentvalue = document.getElementById('offon').value;
+  if(currentvalue == "scrollup âŽ"){
+    document.getElementById("offon").value="scrollup âœ…";
+  }else{
+    document.getElementById("offon").value="scrollup âŽ";
+  }
+}
+
+
+// markdown converter -------------------------------------------
+
+
+  
+  
+ /**
+ * drawdown.js
+ * (c) Adam Leggett
+ */
+
+
+;function markdown(src) {
+
+    var rx_lt = /</g;
+    var rx_gt = />/g;
+    var rx_space = /\t|\r|\uf8ff/g;
+    var rx_escape = /\\([\\\|`*_{}\[\]()#+\-~])/g;
+    var rx_hr = /^([*\-=_] *){3,}$/gm;
+    var rx_br = /([*\/] *){3}/g;
+    //line break by '///'
+    var rx_blockquote = /\n *&gt; *([^]*?)(?=(\n|$){2})/g;
+    var rx_list = /\n( *)(?:[*\-+]|((\d+)|([a-z])|[A-Z])[.)]) +([^]*?)(?=(\n|$){2})/g;
+    var rx_listjoin = /<\/(ol|ul)>\n\n<\1>/g;
+    var rx_highlight = /(^|[^A-Za-z\d\\])(([*_])|(~)|(\^)|(--)|(\+\+)|`)(\2?)([^<]*?)\2\8(?!\2)(?=\W|_|$)/g;
+    var rx_code = /\n((```|~~~).*\n?([^]*?)\n?\2|((    .*?\n)+))/g;
+    var rx_link = /((!?)\[(.*?)\]\((.*?)( ".*")?\)|\\([\\`*_{}\[\]()#+\-.!~]))/g;
+    var rx_table = /\n(( *\|.*?\| *\n)+)/g;
+    var rx_thead = /^.*\n( *\|( *\:?-+\:?-+\:? *\|)* *\n|)/;
+    var rx_row = /.*\n/g;
+    var rx_cell = /\||(.*?[^\\])\|/g;
+    var rx_heading = /(?=^|>|\n)([>\s]*?)(#{1,6}) (.*?)( #*)? *(?=\n|$)/g;
+    var rx_para = /(?=^|>|\n)\s*\n+([^<]+?)\n+\s*(?=\n|<|$)/g;
+    var rx_stash = /-\d+\uf8ff/g;
+
+    function replace(rex, fn) {
+        src = src.replace(rex, fn);
+    }
+
+    function element(tag, content) {
+        return '<' + tag + '>' + content + '</' + tag + '>';
+    }
+
+    function blockquote(src) {
+        return src.replace(rx_blockquote, function(all, content) {
+            return element('blockquote', blockquote(highlight(content.replace(/^ *&gt; */gm, ''))));
+        });
+    }
+
+    function list(src) {
+        return src.replace(rx_list, function(all, ind, ol, num, low, content) {
+            var entry = element('li', highlight(content.split(
+                RegExp('\n ?' + ind + '(?:(?:\\d+|[a-zA-Z])[.)]|[*\\-+]) +', 'g')).map(list).join('</li><li>')));
+
+            return '\n' + (ol
+                ? '<ol start="' + (num
+                    ? ol + '">'
+                    : parseInt(ol,36) - 9 + '" style="list-style-type:' + (low ? 'low' : 'upp') + 'er-alpha">') + entry + '</ol>'
+                : element('ul', entry));
+        });
+    }
+
+    function highlight(src) {
+        return src.replace(rx_highlight, function(all, _, p1, emp, sub, sup, small, big, p2, content) {
+            return _ + element(
+                  emp ? (p2 ? 'strong' : 'em')
+                : sub ? (p2 ? 's' : 'sub')
+                : sup ? 'sup'
+                : small ? 'small'
+                : big ? 'big'
+                : 'code',
+                highlight(content));
+        });
+    }
+
+    function unesc(str) {
+        return str.replace(rx_escape, '$1');
+    }
+
+    var stash = [];
+    var si = 0;
+
+    src = '\n' + src + '\n';
+
+    replace(rx_lt, '&lt;');
+    replace(rx_gt, '&gt;');
+    replace(rx_space, '  ');
+
+    // blockquote
+    src = blockquote(src);
+
+    // horizontal rule
+    replace(rx_hr, '<hr/>');
+
+    // line break
+    replace(rx_br, '<br/>');
+
+    // list
+    src = list(src);
+    replace(rx_listjoin, '');
+
+    // code
+    replace(rx_code, function(all, p1, p2, p3, p4) {
+        stash[--si] = element('pre', element('code', p3||p4.replace(/^    /gm, '')));
+        return si + '\uf8ff';
+    });
+
+    // link or image
+    replace(rx_link, function(all, p1, p2, p3, p4, p5, p6) {
+        stash[--si] = p4
+            ? p2
+                ? '<img src="' + p4 + '" alt="' + p3 + '"/>'
+                : '<a href="' + p4 + '">' + unesc(highlight(p3)) + '</a>'
+            : p6;
+        return si + '\uf8ff';
+    });
+
+    // table
+    replace(rx_table, function(all, table) {
+        var sep = table.match(rx_thead)[1];
+        return '\n' + element('table',
+            table.replace(rx_row, function(row, ri) {
+                return row == sep ? '' : element('tr', row.replace(rx_cell, function(all, cell, ci) {
+                    return ci ? element(sep && !ri ? 'th' : 'td', unesc(highlight(cell || ''))) : ''
+                }))
+            })
+        )
+    });
+
+    // heading
+    replace(rx_heading, function(all, _, p1, p2) { return _ + element('h' + p1.length, unesc(highlight(p2))) });
+
+    // paragraph
+    replace(rx_para, function(all, content) { return element('p', unesc(highlight(content))) });
+
+    // stash
+    replace(rx_stash, function(all) { return stash[parseInt(all)] });
+
+    return src.trim();
+}; 
+ 
+  
+// ---------------
+
+var ein = document.querySelector(".input");
+var eout = document.querySelector(".markdown");
+function update() {
+  eout.innerHTML = markdown(ein.value);
+}
+ein.addEventListener("input", update);
+update();
+</script>
+</html>
