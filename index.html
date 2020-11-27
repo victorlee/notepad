@@ -97,7 +97,7 @@ padding: 0 5px;
 <a href="https://victorlee.github.io/urlpages/editor/#eyJjc3MiOiJodG1sIHtcbiAgbWF4LXdpZHRoOiAzOHJlbTtcbiAgcGFkZGluZzogNHJlbSAycmVtO1xuICBtYXJnaW46IGF1dG87XG4gIGxpbmUtaGVpZ2h0OiAxLjg7XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZFxufVxuaW1nIHtcbm1heC13aWR0aDogMTAwJTtcbm1hcmdpbjogYXV0bztcbmRpc3BsYXk6IGJsb2NrO1xufVxuYmxvY2txdW90ZSB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBwYWRkaW5nOiAwLjJlbSAwIDAuMmVtIDJlbTtcbiAgYm9yZGVyLWxlZnQ6IDNweCBzb2xpZCByZ2IoMjExLCAyMTgsIDIzNCk7XG59XG5saSwgY29kZSB7XG4gIG1hcmdpbjogMC40ZW0gMDtcbn1cbnAge1xuICBtYXJnaW46IDAuOWVtIDA7XG59XG50YWJsZSB7XG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XG4gIHRhYmxlLWxheW91dDogZml4ZWQ7XG4gIHdpZHRoOiAxMDAlO1xufVxudGFibGUgdGQsIHRhYmxlIHRoIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2VlZTtcbiAgcGFkZGluZzogNXB4O1xufVxudGFibGUgdHI6bnRoLWNoaWxkKGV2ZW4pe1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmFmYWZhO1xufVxudGFibGUgdHI6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xufVxudGFibGUgdGgge1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xuICBwYWRkaW5nLXRvcDogOHB4O1xuICBwYWRkaW5nLWJvdHRvbTogOHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xufVxucHJlID4gY29kZSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwYWRkaW5nOiAwLjVlbSAyZW07XG4gIG92ZXJmbG93LXg6YXV0bztcbn1cbmNvZGUge1xuICBiYWNrZ3JvdW5kOiByZ2JhKDIxMSwgMjE4LCAyMzQsIDAuMjUpO1xufVxudGV4dGFyZWEge1xucmVzaXplOiBub25lO1xufSIsImpzIjoiIiwiaHRtbCI6IjxtZXRhIG5hbWU9XCJ2aWV3cG9ydFwiIGNvbnRlbnQ9XCJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wXCI+XG48dGl0bGU+ICoqKlRJVExFKioqIDwvdGl0bGU+XG48bGluayBocmVmPVwiaHR0cHM6Ly92aWN0b3JsZWUuZ2l0aHViLmlvL2NvZGUvZm9udC5jc3NcIiByZWw9XCJzdHlsZXNoZWV0XCIgdHlwZT1cInRleHQvY3NzXCI+XG5cbiJ9" target="_blank"><button>web</button></a>
   </td>
   <td>
-    <input type="button" value="scrollup âŽ" id="offon" onclick="offon();">
+    <input type="button" value="scrollup ❎" id="offon" onclick="offon();">
   </td>
 </tr>
 </table>
@@ -156,10 +156,10 @@ $('#offon').click(function() {
 start();
 function offon(){
   currentvalue = document.getElementById('offon').value;
-  if(currentvalue == "scrollup âŽ"){
-    document.getElementById("offon").value="scrollup âœ…";
+  if(currentvalue == "scrollup ❎"){
+    document.getElementById("offon").value="scrollup ✅";
   }else{
-    document.getElementById("offon").value="scrollup âŽ";
+    document.getElementById("offon").value="scrollup ❎";
   }
 }
 
